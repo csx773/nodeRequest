@@ -1,15 +1,16 @@
 var https = require('https');
 
-function getHTML (options, callback) {
 
-  /* Add your code here */
+
+//export functions to be used in testing file
+module.exports = function getHTML (options, callback) {
+    /* Your code here */
   var completeData = '';
 
   //must call https.get() first to initiate the call to GET data from server
   https.get(options, function (response){
     // the callback is invoked when a `data` chunk is received
     response.on('data', function (data) {
-      //console.log('Chunk Received. Length:', data.length);
       completeData += data;
     });
 
@@ -22,18 +23,4 @@ function getHTML (options, callback) {
     });
 
   })
-
-
-}
-
-function printHTML (html) {
-  console.log(html);
-}
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step4.html'
 };
-
-//Testing code below
-getHTML(requestOptions, printHTML);
