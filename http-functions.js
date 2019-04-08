@@ -1,10 +1,11 @@
-var https = require('https');
+
 
 
 
 //export functions to be used in testing file
 module.exports = function getHTML (options, callback) {
     /* Your code here */
+  var https = require('https');
   var completeData = '';
 
   //must call https.get() first to initiate the call to GET data from server
